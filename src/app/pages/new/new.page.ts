@@ -35,14 +35,14 @@ export class NewPage implements OnInit {
   }
 
   updateStatus(){
-    if(this.list.items.filter(i => i.completed === false).length == 0){
+    const pendings = this.list.items.filter(i => i.completed === false).length;
+    if(pendings == 0){
       this.list.completedAt = new Date();
       this.list.completed = true;
     }else{
       this.list.completedAt = null;
       this.list.completed = false;
     }
-
     this.wishes.saveStorage();
   }
 

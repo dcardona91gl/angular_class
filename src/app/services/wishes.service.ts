@@ -16,11 +16,28 @@ export class WishesService {
     return this.lists;
   }
 
+  getListsByState(completed:boolean):List[]{
+    this.lists = this.lists.filter(l => l.completed === completed);
+    return this.lists;
+  }
+
+  updateTitle(id:number, title:string):List[]{
+    this.lists.find(l => l.id = id).title = title;
+    this.saveStorage();
+    return this.lists;
+  }
+
   setNew(title:string){
     const newList = new List(title);
     this.lists.push(newList);
     this.saveStorage();
     return newList.id;
+  }
+
+  deleteList(listId:number):List[]{
+    this.lists = this.lists.filter(l => l.id !== listId);
+    this.saveStorage();
+    return this.lists;
   }
 
   getListById(id:number | string){

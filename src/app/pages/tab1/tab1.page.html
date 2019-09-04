@@ -7,16 +7,8 @@
 </ion-header>
 
 <ion-content  color="dark" >
-  <ion-list  color="dark" >
-    <ion-item
-      (click)="goToListPage(list.id)"
-      *ngFor="let list of lists" detail  color="dark">
-      <ion-label>
-        {{ list.title }}
-      </ion-label>
-      <ion-note slot="end">{{list.items.length}}</ion-note>
-    </ion-item>
-  </ion-list>
+
+  <app-lists [completed]="false"></app-lists>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button (click)="newList()">

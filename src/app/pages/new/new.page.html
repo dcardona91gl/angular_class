@@ -29,7 +29,7 @@
         <ion-item color="dark">
           <ion-checkbox
             [(ngModel)]="item.completed"
-            (click)="updateStatus()"
+            (ionChange)="updateStatus()"
             slot="start"></ion-checkbox>
           <ion-label>{{item.desc}}</ion-label>
         </ion-item>

@@ -13,12 +13,11 @@ import { isNumber } from 'util';
 export class Tab1Page {
 
   lists:List[];
+  listCompletedState:boolean = true;
 
   constructor(private wishes:WishesService,
               private router:Router,
-              private alertControler:AlertController) {
-    this.lists = wishes.getAll();
-  }
+              private alertControler:AlertController) {}
 
   async newList(){
     const alert = await this.alertControler.create({
@@ -34,9 +33,7 @@ export class Tab1Page {
         {
         text: 'Cancelar',
         role: 'cancel',
-        handler: () => {
-          console.log('Cancelar')
-          }
+        handler: () => {}
         },
         {
           text: 'Crear',
